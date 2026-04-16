@@ -382,6 +382,9 @@ let typeTimeout;
 let isTyping = false;
 let currentFullText = "";
 
+const igniteSound = new Audio('./saber.mp3');
+igniteSound.volume = 0.5; // Гучність 50% (щоб не лякати користувачів)
+
 function toggleMenu() {
   const menu = document.getElementById('menuOverlay');
   isMenuOpen = !isMenuOpen;
@@ -473,6 +476,12 @@ function typeWriter(text) {
 function generateWisdom() {
   if(isAnimating) return;
   isAnimating = true;
+
+  // --- ВМИКАЄМО ЗВУК ---
+  igniteSound.currentTime = 0; // Перемотуємо на початок (якщо клікають швидко)
+  // Відтворюємо звук. .catch потрібен, бо браузери блокують звук до першого кліку (при автозавантаженні сторінки)
+  igniteSound.play().catch(e => console.log("Чекаємо взаємодії користувача для звуку"));
+  // ---------------------
 
   // Зупиняємо попередній текст, якщо він ще друкувався
   clearTimeout(typeTimeout);
