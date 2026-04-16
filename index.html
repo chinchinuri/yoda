@@ -23,19 +23,14 @@
     overflow: hidden;
   }
 
-  body::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    /* УВАГА: Замініть yoda-bg.jpg на шлях до вашої картинки */
-    background-image: 
-      linear-gradient(rgba(5, 13, 8, 0.4), rgba(5, 13, 8, 0.85)),
-      url('./yoda-bg.jpg'); 
+  body {
+  background-image: 
+    linear-gradient(rgba(5, 13, 8, 0.4), rgba(5, 13, 8, 0.85)),
+    url('./Yoda-Retina_2a7ecc26.jpeg');
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
-    filter: contrast(1.1) brightness(0.8);
   }
 
   .app-container {
